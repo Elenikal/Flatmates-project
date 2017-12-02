@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage{IEEEtrantools}% only needed if a class different from IEEEtran is used.
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\usepackage[round,sort]{natbib}
+\bibliographystyle{ecta}
+
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{tocloft}
+
+%\bibliographystyle{IEEEtran}
+%\bibliographystyle{abbrvnat}
+
+\usepackage{setspace}
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\renewcommand{\thesubsubsection}{\Roman{subsubsection}}
+\renewcommand{\baselinestretch}{1.1} 
+
+%\addtolength{\topmargin}{-.875in}
+%\addtolength{\textheight}{1.35in}
+
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{23cm}
+\setlength{\hoffset}{-1.3cm}
+\setlength{\voffset}{-1.3cm}
+%\setlength{\parskip}{16pt}
+
+
+\title{Text-based indicators for uncertainty and sentiment}
+
+\begin{document}
+\maketitle
+
+
+
+
+\section{Literature}
+
+Motivated by the vast availability of text-based information, it is quite plausible that text data, mainly stemming from news outlets and financial reports, provide a rich source of invaluable information which matters for gauging uncertainty and assessing economic and financial trends (Baker et al., (2016), Tetlock (2007), Antweiler and Frank (2004)).
+
+Textual analysis may be a useful tool for central banks, as it measures the sentiment and the risk in financial system (Nyman et al., 2015) and thus, provides a valuable guidance of policy intentions.  Another possible contribution of quantifying text is the potential to acquire a better understanding of the interconnections between different policies such as monetary and macro prudential, and estimate whether they are complementary or conflicting. 
+These techniques may also, be helpful to evaluate the communication tools of central banks such as the policy of forward guidance, and investigate the impact on economic recovery (Hansen et al. 2016).
+
+Various text-mining techniques have already been developed to analyse and construct indicators from textual material. Dictionary and Boolean methods are by far, the most commonly used, mainly due to their simplicity and scalability. Using a list of pre-specified words of interest\footnote{The most widely used dictionary in economics and finance is the Harvard-IV(4NG). Loughram and McDonald (2011), building on the Harvard-IV, demonstrate a more finance-specific dictionary of negative and positive terms. Neyman et al (2015) use words lists of previously experimentally validated that based on socio-psychological theories of sentiment.}, they create a term-document matrix which tends to be high-dimensional and sparse, and then, it is estimated to indicate proxies of different sentiments.
+
+In addition, more advanced approaches usually refereed as unsupervised methods, have been applied to extract low-dimensional information from documents. The main idea is based on measuring the similarity of the topics (topic modelling) between texts rather than exploiting pre-defined word lists. Latent Dirichlet Allocation is a ``mixed-membership"  topic model in which words and documents are assigned probabilities and related to multiple topics. 
+
+I propose methods originated from machine learning literature and dimensionality reduction, for analysing textual material that could potentially serve us a more parsimonious output.
+
+Under such a big data framework, one could think of two mains settings to estimate the text-document matrix. The first one is the sparse regression setting, where the main aim is to estimate the coefficients while stabilising their variability. The second one aims to reduce the dimensions of the document matrix which corresponds to text features, producing regressors of smaller dimensions that are linear combinations of the original regressors and can be used for inference and forecasting.
+
+From the first strand, different penalisation schemes have been used to produce sparse regressions. Penalized linear models impose non-linear constraints on the model parameters which in turn shrink them towards to zero achieving more effective estimates (LASSO,Tibshirani,()1996) and Elastic Net,Zou and Hastie (2005)).
+
+The second strand of the literature provides alternative methods that  perform high predictive power within a big data context and are known as factor methods. The starting point on that case is the production of a smaller set of generated regressors, which can then be used in a second step in standard econometric models to produce empirical exercises (PCA Stock and Watson (2002), PLS Groen and Kapetanios (2016)).
+
+\nocite{*}
+\bibliography{lit}
+
+\end{document}
